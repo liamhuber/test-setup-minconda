@@ -10,7 +10,7 @@ jobs:
     - name: Write env file
       shell: bash -l {0}
       run: |
-        echo -e "channels:\n- conda-forge\nnodefaults\ndependencies:\n- numpy" > environment.yml
+        echo -e "channels:\n- conda-forge\n- nodefaults\ndependencies:\n- numpy" > environment.yml
         cat environment.yml
     - uses: conda-incubator/setup-miniconda@v3
       with:
