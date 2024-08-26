@@ -18,5 +18,4 @@ jobs:
         miniforge-version: latest
         channels: conda-forge
         channel-priority: strict
-        use-mamba: false
         environment-file: environment.yml
