@@ -1,0 +1,21 @@
+name: Test setup-miniconda with manual nodefaults in env file
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Write env file
+      shell: bash -l {0}
+      run: |
+        echo -e "channels:\n- conda-forge\n- nodefaults\ndependencies:\n- numpy" > environment.yml
+        cat environment.yml
+    - uses: conda-incubator/setup-miniconda@v3
+      with:
+        miniforge-variant: Miniforge3
+        miniforge-version: latest
+        channels: conda-forge
+        channel-priority: strict
+        environment-file: environment.yml
