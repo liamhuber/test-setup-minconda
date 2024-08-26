@@ -16,6 +16,6 @@ jobs:
       with:
         miniforge-variant: Miniforge3
         miniforge-version: latest
-        channels: conda-forge nodefaults
+        channels: conda-forge, nodefaults
         channel-priority: strict
         environment-file: environment.yml
