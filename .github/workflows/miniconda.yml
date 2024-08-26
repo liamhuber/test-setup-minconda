@@ -15,4 +15,4 @@ jobs:
         channels: conda-forge
         channel-priority: strict
         use-mamba: false
-        activate-environment: environment.yml
+        environment-file: environment.yml
