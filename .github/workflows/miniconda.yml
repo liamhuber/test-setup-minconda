@@ -7,7 +7,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - name: Write env file
+      shell: bash -l {0}
+      run: |
+        echo -e "channels:\n- conda-forge\ndependencies:\n- numpy" > environment.yml
+        cat environment.yml
     - uses: conda-incubator/setup-miniconda@v3
       with:
         miniforge-variant: Miniforge3
