@@ -1,0 +1,22 @@
+name: Test nodefaults patch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Write env file
+      shell: bash -l {0}
+      run: |
+        echo -e "channels:\n- conda-forge\ndependencies:\n- numpy" > environment.yml
+        cat environment.yml
+    - uses: liamhuber/setup-miniconda@nodefaults
+      with:
+        miniforge-variant: Miniforge3
+        miniforge-version: latest
+        channels: conda-forge nodefaults
+        channel-priority: strict
+        use-mamba: false
+        environment-file: environment.yml
