@@ -1,4 +1,4 @@
-name: Test setup-miniconda
+name: Test setup-miniconda with naive nodefaults
 
 on:
   workflow_dispatch:
